@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/YoshikiShop/index.php';
+$config['base_url']	= 'http://localhost/yoshikiShopNew/';
 
 /*
 |--------------------------------------------------------------------------

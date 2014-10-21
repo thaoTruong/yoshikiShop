@@ -7,7 +7,7 @@
     <body>
         <div class="mainBody">
             <div class="banner">
-                <img src="<?=base_url()?>styles/site_banner.png"/>
+                <img src="<?=base_url()?>styles/site_banner.jpg"/>
             </div>
             <div class="menuBar">
 

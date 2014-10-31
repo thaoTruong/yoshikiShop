@@ -19,7 +19,7 @@ class Products extends CI_Controller {
      */
     public function index()
     {
-        $data['productList'] = $this->db->get('product')->result();
+        $data['productList'] = $this->db->query('Select p.*, concat("'.base_url() .'", "styles/product/", p.product_id,".jpg") as img_url from product as p')->result();
 
         $data["body"] = $this->parser->parse('products', $data, true);
 
@@ -30,6 +30,3 @@ class Products extends CI_Controller {
         echo $type;
     }
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */

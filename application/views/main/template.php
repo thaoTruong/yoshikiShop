@@ -19,6 +19,8 @@
 
                 <a href="<?=base_url()?>contact">Contact</a>
 
+				<a href="<?=base_url()?>admin">Admin</a>
+
             </div>
             <div class="content">
                 <?php echo $body; ?>

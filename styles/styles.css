@@ -31,3 +31,23 @@ body{
 	width: 100%;
 	height: 100%;
 }
+
+.authForm div{
+	float: left;
+	width: 100%;
+}
+
+.authForm{
+	width: 500px;
+}
+
+.authForm label{
+	display: block;
+	width:150px;
+	float: left;
+}
+
+.authForm input{
+	float: left;
+	width: 250px;
+}

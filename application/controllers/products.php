@@ -19,11 +19,11 @@ class Products extends CI_Controller {
      */
     public function index()
     {
-        foreach($this->db->get('product')->result() as $row){
-            $data['productList'][] = $row->product_name;
-        }
-        $data["body"] = $this->load->view('products', $data, true);
-        $this->load->view("main/template", $data);
+        $data['productList'] = $this->db->get('product')->result();
+
+        $data["body"] = $this->parser->parse('products', $data, true);
+
+		$this->load->view("main/template", $data);
     }
 
     public function tea($type){

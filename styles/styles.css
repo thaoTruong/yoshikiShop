@@ -32,22 +32,27 @@ body{
 	height: 100%;
 }
 
-.authForm div{
+.authForm div, .addProductForm div{
 	float: left;
 	width: 100%;
+    min-height: 40px;
 }
 
-.authForm{
+.authForm, .addProductForm{
 	width: 500px;
 }
 
-.authForm label{
+.authForm label, .addProductForm label{
 	display: block;
 	width:150px;
 	float: left;
 }
 
-.authForm input{
+.authForm input, .addProductForm input, .addProductForm textarea{
 	float: left;
 	width: 250px;
+}
+
+.addProductForm div.formButton{
+    margin-left: 150px;
 }

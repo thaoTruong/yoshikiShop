@@ -26,6 +26,8 @@
  */
 class CI_Model {
 
+    public $table;
+    public $data;
 	/**
 	 * Constructor
 	 *
@@ -50,6 +52,19 @@ class CI_Model {
 		$CI =& get_instance();
 		return $CI->$key;
 	}
+
+    function save(){
+        $_ = $this->table . "_id";
+
+        $update = false;
+        if($this->data[$_]){
+            $update = true;
+        }
+
+        $res = $update ? $this->db->update("product", $this->data) : $this->db->insert("product", $this->data);
+
+        return $res;
+    }
 }
 // END Model Class
 

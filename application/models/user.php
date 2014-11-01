@@ -8,11 +8,16 @@
 
 class User extends CI_Model{
 
-	public function validate($username, $password){
+    function __construct()
+    {
+        parent::__construct();
+    }
+
+	function validate($username, $password){
 		if(!$username or !$password){
 			return false;
 		}
-		return (bool)$this->db->get("user")->where("user_username",$username)->where("user_password",$password)->num_rows();
+        return (bool)$this->db->get_where("user", array("user_username"=> $username, "user_password" => $password))->num_rows();
 	}
 
 } 

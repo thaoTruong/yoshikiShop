@@ -15,7 +15,7 @@ class Admin extends CI_Controller {
             $input = array_merge($this->input->post(), $_FILES);
             $this->load->model('Product');
             if($errors = $this->Product->validate($input) and $this->Product->save()){
-                $data['body'] = 'Added';
+                $data['body'] = 'Added<b/>'. $this->getAdminPanel();
             }else{
                 $data["errors"] = $errors;
                 $data['body'] = $this->getAdminPanel($data);

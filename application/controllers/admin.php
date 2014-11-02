@@ -11,36 +11,36 @@ class Admin extends CI_Controller {
 
 	public function index(){
 
-		if($this->session->userdata("username")){
-			$data['body'] = $this->getAdminPanel();
-		}else if($this->input->post()){
-            if($this->input->post("username")) {
-                $username = $this->input->post("username");
-                $password = $this->input->post("password");
-                $this->load->model("User");
-                $isUser = $this->User->validate($username, $password);
-                if ($isUser) {
-                    $this->session->set_userdata(array("username" => $username));
-                    $data['body'] = $this->getAdminPanel();
-                } else {
-                    $data['body'] = "Sorry, wrong login and password";
-                }
-            }else if($this->input->post("product_name")){
-                $this->load->model('Product');
-                if($this->Product->validate($this->input->post()) and $this->Product->save()){
-                    $data['body'] = 'Added';
-                }else{
-                    $data['body'] = "Failed";
-                }
+        if($this->input->post("product_name")){
+            $input = array_merge($this->input->post(), $_FILES);
+            $this->load->model('Product');
+            if($errors = $this->Product->validate($input) and $this->Product->save()){
+                $data['body'] = 'Added';
+            }else{
+                $data["errors"] = $errors;
+                $data['body'] = $this->getAdminPanel($data);
             }
+        }else if($this->input->post("username")) {
+            $username = $this->input->post("username");
+            $password = $this->input->post("password");
+            $this->load->model("User");
+            $isUser = $this->User->validate($username, $password);
+            if ($isUser) {
+                $this->session->set_userdata(array("username" => $username));
+                $data['body'] = $this->getAdminPanel();
+            } else {
+                $data['body'] = "Sorry, wrong login and password";
+            }
+        }else if($this->session->userdata("username")){
+			$data['body'] = $this->getAdminPanel();
 		}else {
 			$data['body'] = $this->parser->parse("authForm", array(), true);
 		}
 
-		$this->load->view("main/template", $data);
+		$this->parser->parse("main/template", $data);
 	}
 
-	private function getAdminPanel(){
+	private function getAdminPanel($data = array()){
 		$data["producttypes"] = $this->db->get("producttype")->result();
 		return $this->parser->parse("adminPanel", $data, true);
 	}

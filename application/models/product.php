@@ -14,11 +14,11 @@ class Product extends CI_Model {
         $error = array();
 
         if(!trim($data['product_name'])){
-            $error['product_name'] = "Please enter your product's name";
+            $error[] = array("name"=>"product_name", "text"=> "Please enter your product's name");
         }
 
-        if(!sizeof($data['product_img'])){
-            $error['product_img'] = "Please make sure you upload an image, it's very important for the customers";
+        if(isset($data['product_img']) and !sizeof($data['product_img'])){
+            $error[] = array("name"=>'product_img', "text"=>"Please make sure you upload an image, it's very important for the customers");
         }
 
         if(!count($error)){
@@ -28,7 +28,7 @@ class Product extends CI_Model {
             return true;
         }
 
-        return false;
+        return $error;
     }
 
     function save(){
@@ -37,31 +37,30 @@ class Product extends CI_Model {
         $res = parent::save();
 
         if($res){
-            $this->do_upload_file();
+            $uploadRes = $this->do_upload_file();
+            return $uploadRes;
+
+        }else{
+            return array("name" => "Saving product failed", "text"=>"Saving product failed");
         }
     }
 
     function do_upload_file()
     {
-        $config['upload_path'] = BASEPATH . 'styles/product/';
-        $config['allowed_types'] = 'jpg|png';
+        $config['upload_path'] = ROOT_PATH . 'styles/product/';
+        $config['file_name'] = $this->db->insert_id().'.jpg';
+        $config['allowed_types'] = 'jpg';
         $config['max_size']	= '100';
         $config['max_width']  = '1024';
         $config['max_height']  = '768';
 
         $this->load->library('upload', $config);
 
-        if ( ! $this->upload->do_upload())
-        {
-            $error = array('error' => $this->upload->display_errors());
-
-            $this->load->view('upload_form', $error);
+        if ( ! $this->upload->do_upload('product_img')){
+            return false;
+        }else{
+            $res = true;
         }
-        else
-        {
-            $data = array('upload_data' => $this->upload->data());
-
-            $this->load->view('upload_success', $data);
-        }
+        return $res;
     }
 } 

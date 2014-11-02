@@ -57,7 +57,7 @@ class CI_Model {
         $_ = $this->table . "_id";
 
         $update = false;
-        if($this->data[$_]){
+        if(isset($this->data[$_]) and $this->data[$_]){
             $update = true;
         }
 

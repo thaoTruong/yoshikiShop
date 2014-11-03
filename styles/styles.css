@@ -69,3 +69,10 @@ body{
     font-weight: bold;
 
 }
+
+.menuBar a {
+    border: dashed grey 2px;
+    padding: 15px;
+    text-decoration: none;
+    color: darkgoldenrod;
+}

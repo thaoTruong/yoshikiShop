@@ -41,6 +41,7 @@ class Admin extends CI_Controller {
 	}
 
 	private function getAdminPanel($data = array()){
+        $data['products'] = $this->db->get("product")->result();
 		$data["producttypes"] = $this->db->get("producttype")->result();
 		return $this->parser->parse("adminPanel", $data, true);
 	}

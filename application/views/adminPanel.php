@@ -8,20 +8,24 @@
 	<div class="addProduct">
 		<div class="productImage">
             <label>Product's image</label>
-			<input type="file" name="product_img" accept="image/jpeg" required />
+			<input type="file" name="product_img" accept="image/jpeg" required  />
 		</div>
 		<div class="productName">
             <label>Product's name</label>
-			<input type="text" name="product_name"/>
+			<input type="text" name="product_name" placeholder="Enter product's name"/>
 		</div>
 		<div class="productDescription">
             <label>Product's description</label>
-            <textarea name="product_description"></textarea>
+            <textarea name="product_description" placeholder="Enter product's description"></textarea>
 		</div>
 		<div class="productQuantity">
             <label>Product's quantity</label>
-			<input type="number" name="product_quantity" value="1"/>
+			<input type="number" name="product_quantity" value="1" placeholder="How much of this do you have?"/>
 		</div>
+        <div class="productPrice">
+            <label>Product's price</label>
+            <input type="number" name="product_price" placeholder="Price in USD"/>
+        </div>
 		<div class="productType">
             <label>Product's type</label>
 			<select name="product_type">

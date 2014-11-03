@@ -47,16 +47,17 @@ class Product extends CI_Model {
 
     function do_upload_file()
     {
-        $config['upload_path'] = ROOT_PATH . 'styles/product/';
+        $config['upload_path'] = $this->config->item("product_upload_url");
         $config['file_name'] = $this->db->insert_id().'.jpg';
         $config['allowed_types'] = 'jpg';
-        $config['max_size']	= '100';
+        $config['max_size']	= '2048';
         $config['max_width']  = '1024';
         $config['max_height']  = '768';
 
         $this->load->library('upload', $config);
 
         if ( ! $this->upload->do_upload('product_img')){
+			echo $this->upload->display_errors();
             return false;
         }else{
             $res = true;

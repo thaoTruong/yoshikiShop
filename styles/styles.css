@@ -75,4 +75,15 @@ body{
     padding: 15px;
     text-decoration: none;
     color: darkgoldenrod;
+    display: block;
+    width: 10%;
+    float: left;
+    margin-right: 20px;
+    text-align: center;
+}
+
+.menuBar{
+    width: 100%;
+    float: left;
+    margin-bottom: 20px;
 }

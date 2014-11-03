@@ -12,6 +12,7 @@ body{
     padding: 20px;
     background-color: #FFFFFF;
     overflow: auto;
+    border-radius: 10px;
 }
 
 .banner img{
@@ -30,6 +31,7 @@ body{
     float:left;
     margin: 10px;
     padding: 10px;
+    border-radius: 15px;
 }
 
 .product img{
@@ -80,6 +82,7 @@ body{
     float: left;
     margin-right: 20px;
     text-align: center;
+    border-radius: 15px;
 }
 
 .menuBar{

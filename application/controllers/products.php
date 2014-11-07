@@ -22,7 +22,6 @@ class Products extends CI_Controller {
         $productList = $this->db->query('Select p.*, concat("'.base_url() .'", "styles/product/", p.product_id,".jpg") as img_url from product as p where product_quantity > 0')->result();
 
         $this->smartyci->assign('products', $productList);
-
 		$this->smartyci->display('products.tpl');
     }
 

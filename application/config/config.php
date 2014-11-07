@@ -362,3 +362,5 @@ $config['proxy_ips'] = '';
 /* Location: ./application/config/config.php */
 
 $config['product_upload_url'] = ROOT_PATH . "styles/product/";
+
+$config['application_dir'] = ROOT_PATH . "application/";

@@ -19,11 +19,11 @@ class Products extends CI_Controller {
      */
     public function index()
     {
-        $data['productList'] = $this->db->query('Select p.*, concat("'.base_url() .'", "styles/product/", p.product_id,".jpg") as img_url from product as p where product_quantity > 0')->result();
+        $productList = $this->db->query('Select p.*, concat("'.base_url() .'", "styles/product/", p.product_id,".jpg") as img_url from product as p where product_quantity > 0')->result();
 
-        $data["body"] = $this->parser->parse('products', $data, true);
+        $this->smartyci->assign('products', $productList);
 
-		$this->load->view("main/template", $data);
+		$this->smartyci->display('products.tpl');
     }
 
     public function tea($type){

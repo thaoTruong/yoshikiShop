@@ -1,13 +1,18 @@
 body{
-    background-color: #FFF;
+    background-color: pink;
 }
 
+.content{
+
+}
 .mainBody{
     width: 800px;
     margin: 0 auto;
-    /*border: solid #444444 1px;*/
-    /*min-height: 500px;*/
+    min-height: 600px;
     padding: 20px;
+    background-color: #FFFFFF;
+    overflow: auto;
+    border-radius: 10px;
 }
 
 .banner img{
@@ -25,29 +30,80 @@ body{
     border: lightgrey dashed 1px;
     float:left;
     margin: 10px;
+    padding: 10px;
+    border-radius: 15px;
 }
 
 .product img{
-	width: 100%;
-	height: 100%;
+	width: 80%;
+	height: 80%;
+    margin-left: 10%;
 }
 
-.authForm div{
+.authForm div, .adminPanel form div{
 	float: left;
 	width: 100%;
+    min-height: 40px;
 }
 
-.authForm{
+.authForm, .adminPanel form{
 	width: 500px;
 }
 
-.authForm label{
+.authForm label, .adminPanel form label{
 	display: block;
 	width:150px;
 	float: left;
 }
 
-.authForm input{
+.authForm input, .adminPanel form input, .adminPanel form textarea{
 	float: left;
 	width: 250px;
+}
+
+.adminPanel form div.formButton{
+    margin-left: 150px;
+}
+
+.product label{
+    text-align: center;
+    display: block;
+    font-weight: bold;
+
+}
+
+.menuBar a {
+    border: dashed grey 2px;
+    padding: 15px;
+    text-decoration: none;
+    color: darkgoldenrod;
+    display: block;
+    width: 10%;
+    float: left;
+    margin-right: 20px;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.menuBar{
+    width: 100%;
+    float: left;
+    margin-bottom: 20px;
+}
+
+footer{
+	margin: 20px auto;
+	text-align: center;
+}
+
+.adminPanel form{
+    float: left;
+    width:60%;
+}
+
+.contactDetails label{
+    width: 200px;
+    font-weight: bold;
+    display: block;
+    float: left;
 }

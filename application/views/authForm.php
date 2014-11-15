@@ -10,6 +10,6 @@
 		<input type="password" required="yes" name="password" />
 	</div>
 	<div>
-		<input type="submit">
+		<button type="submit">Login</button>
 	</div>
 </form>

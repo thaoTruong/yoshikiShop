@@ -4,8 +4,10 @@ class Contact extends CI_Controller {
 
     public function index()
     {
-        $data["body"] = $this->load->view('contact', '', true);
-        $this->load->view("main/template", $data);
+        $this->smartyci->caching = false;
+        $this->smartyci->assign("body", $this->smartyci->fetch('contact.tpl'));
+
+        $this->smartyci->display("main/template.tpl");
     }
 }
 

@@ -27,4 +27,7 @@
             </div>
         </div>
     </body>
+	<footer>
+		Developed by <strong>Thao Truong</strong> - truong.t.n.thao@gmail.com
+	</footer>
 </html>

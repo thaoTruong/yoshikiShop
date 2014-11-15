@@ -100,3 +100,10 @@ footer{
     float: left;
     width:60%;
 }
+
+.contactDetails label{
+    width: 200px;
+    font-weight: bold;
+    display: block;
+    float: left;
+}

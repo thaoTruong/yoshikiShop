@@ -391,9 +391,7 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
     public function display($template = null, $cache_id = null, $compile_id = null, $parent = null)
     {
         // display template
-		$body = $this->fetch($template, $cache_id, $compile_id, $parent, true);
-
-		$this->fetch("main/template.tpl",$body);
+        $this->fetch($template, $cache_id, $compile_id, $parent, true);
     }
 
     /**
